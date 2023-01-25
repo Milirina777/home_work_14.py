@@ -57,11 +57,11 @@ def get_by_category(rating):
        """
 
     if rating == "children":
-        query += "WHERE rating LIKE '%G%'"
+        query += "WHERE rating LIKE 'G'"
     elif rating == "family":
-        query += "WHERE rating LIKE '%G%' OR rating LIKE '%PG%' OR rating LIKE '%PG-13%'"
+        query += "WHERE rating IN ('G', 'PG', 'PG-13')"
     elif rating == "adult":
-        query += "WHERE rating LIKE '%R%' OR rating LIKE '%NC-17%'"
+        query += "WHERE rating IN ('R','NC-17')"
     else:
         return jsonify(status=404)
 
